@@ -2,5 +2,9 @@
 @import "../../node_modules/bulma/bulma.sass";
 
 .container {
-  background-color: aqua;
+  border: 1px solid #000;
+}
+
+.is-dark {
+  margin: 1em;
 }
