@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { CardComponent } from './card/card.component';
-import { ListComponent } from './list/list.component';
-
+import { Component, ViewChild } from '@angular/core';
+import { CardComponent } from '../app/card/card.component';
 
 @Component({
   selector: 'app-root',
@@ -11,19 +9,22 @@ import { ListComponent } from './list/list.component';
 export class AppComponent {
 
   title = 'Prueba Multiplica';
-  
   cards = [];
+
   listCards = [];
+
+
 
   addCard() {
     this.cards.push(
       {
         title: 'Card1',
         content: 'Contenido card1',
-        imageUrl: 'https://bulma.io/images/placeholders/128x128.png'
+        imageUrl: 'https://bulma.io/images/placeholders/128x128.png',
+
       }
-    )
-  };
+    );
+  }
 
 
   addList() {
@@ -39,6 +40,11 @@ export class AppComponent {
         description3: 'Descripción noticia3',
         logo3: 'https://bulma.io/images/placeholders/48x48.png'
       }
-    )
+    );
   }
+
+  newCard(event) {
+    console.log('sdads', event);
+  }
+
 }

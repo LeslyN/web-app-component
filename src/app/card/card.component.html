@@ -16,64 +16,43 @@
               <div class="content field has-addons">
                 <!-- Edit -->
                 <a class="button is-white" (click)="editCard()">EDITAR</a>
-                <!-- <div class="file has-padding-left-2">
-                  <label class="file-label">
-                    <input class="file-input" type="file" name="edit" (click)="editCard()">
-                    <span class="file-label">
-                      EDITAR
-                    </span>
-                  </label>
-                </div> -->
-
 
                 <!-- Deleted -->
                 <a class="button is-white" (click)="deletedCard()">ELIMINAR</a>
-                <!-- <div class="file">
-                  <label class="file-label">
-                    <input class="file-input" type="file" name="edit" (change)="deletedPhoto($event)">
-                    <span class="file-label">
-                      ELIMINAR
-                    </span>
-                  </label>
-                </div> -->
+
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div *ngIf="editing">
-        <div class="field">
-          <label class="label">Title</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Ingrese un título">
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Descripción</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Ingrese una descripción">
-          </div>
-        </div>
+      <div *ngIf="editing" class="content">
+        <form [formGroup]="form">
+          <div class="field">
+            <label class="label">Title</label>
+            <div class="control">
+              <input class="input" type="text" formControlName="title" placeholder="Ingrese un título" required>
 
-        <div class="field">
-          <div class="file has-name">
-            <label class="file-label">
-              <input class="file-input" type="file" name="resume">
-              <span class="file-cta">
-                <!-- <span class="file-icon">
-                    <i class="fas fa-upload"></i>
-                  </span> -->
-                <!-- <span class="file-label">
-                    Normal file…
-                  </span> -->
-              </span>
-              <span class="file-name">
-                <input class="input" type="text" placeholder="Ingrese una url">
-              </span>
-            </label>
+            </div>
           </div>
-        </div>
+          <div class="field">
+            <label class="label">Descripción</label>
+            <div class="control">
+              <input class="input" type="text" formControlName="content" placeholder="Ingrese una descripción" required>
+            </div>
+
+          </div>
+          <div class="field">
+            <label class="label">Imagen</label>
+            <div class="control">
+              <input class="input" type="text" formControlName="imageUrl" placeholder="Ingrese una descripción web de la imagen">
+            </div>
+
+          </div>
+          <button type="button" [disabled]="form.invalid" (click)="addNewCard()">Guardar</button>
+
+        </form>
+
       </div>
     </div>
   </div>

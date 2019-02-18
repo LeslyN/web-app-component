@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-card',
@@ -7,26 +9,41 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() title;
-  @Input() content;
-  @Input() imageUrl;
-  
-  editing: boolean = false;
+  form: FormGroup;
+  @Input() title: any;
+  @Input() content: any;
+  @Input() imageUrl: any;
 
-  constructor() { }
+  @Output() addCardChild = new EventEmitter<any>();
+
+
+  editing = false;
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit() {
-  
-  }  
-
-  editCard() {
-    // console.log(event);
-    // let element = event.target;
-    // if (element.files.length > 0) {
-    //   let data = new FormData();
-    //   data.append('file', element.file[0]);
-    // }
-    this.editing = true;
+    this.form = this.formBuilder.group({
+      title: ['', [Validators.required]],
+      content: ['', [Validators.required]],
+      imageUrl: ['', [Validators.required]]
+    });
   }
 
+  editCard() {
+    this.editing = true;
+
+  }
+
+  addNewCard() {
+    this.editing = false;
+    console.log(this.form.value);
+
+    this.addCardChild.emit(this.form.value);
+  }
+
+
+
+  deletedCard() {}
 }

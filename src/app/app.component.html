@@ -1,13 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<!-- <app-card></app-card> -->
-<!-- <app-list></app-list> -->
 <div class="container">
   <a class="button is-dark" (click)="addCard()">Agregar Card</a>
   <a class="button is-dark" (click)="addList()">Agregar List</a>
   <div class="is-left" *ngFor="let card of cards">
     <app-card [title]=card.title
               [content]=card.content
-              [imageUrl]=card.imageUrl>
+              [imageUrl]=card.imageUrl
+              (addNewCard)="newCard($event)"
+              >
     </app-card>
   </div>
   <div class="is-right" *ngFor="let list of listCards">
@@ -23,7 +23,5 @@
     </app-list>
   </div>
 </div>
-<!-- <div *ngFor="let item of cards">
-  <div>{{item}}</div>
-</div> -->
+
 <router-outlet></router-outlet>
