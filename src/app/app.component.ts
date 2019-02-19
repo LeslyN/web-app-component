@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { CardComponent } from '../app/card/card.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +20,7 @@ export class AppComponent {
         title: 'Card1',
         content: 'Contenido card1',
         imageUrl: 'https://bulma.io/images/placeholders/128x128.png',
-
+        index: this.cards.length
       }
     );
   }
@@ -44,7 +43,26 @@ export class AppComponent {
   }
 
   newCard(event) {
-    console.log('sdads', event);
+
+    // if (this.cards.length > 0) {
+    // tslint:disable-next-line: forin
+      // for (let item in this.cards) {
+      //     this.cards[item].title = event.title;
+      //     this.cards[item].content = event.content;
+      //     this.cards[item].imageUrl = event.imageUrl;
+      //     console.log('item ++: ',  item += 1);
+
+      //   console.log('este es el card numero ' + item,  'este es title: ' + event.title )
+      // }
+      for (let i = 0; i < this.cards.length; i++) {
+        this.cards[i].title = event.title;
+        this.cards[i].content = event.content;
+        this.cards[i].imageUrl = event.imageUrl;
+
+        console.log('este es i: ', i);
+        console.log('Este es el titulo: ', this.cards[i].title);
+      }
+    // }
   }
 
 }

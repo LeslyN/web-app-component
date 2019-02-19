@@ -27,25 +27,28 @@
       </div>
 
       <div *ngIf="editing" class="content">
+        <span>Se está editando el componente Card {{index}}</span>
         <form [formGroup]="form">
           <div class="field">
             <label class="label">Title</label>
             <div class="control">
-              <input class="input" type="text" formControlName="title" placeholder="Ingrese un título" required>
+              <input class="input" type="text" formControlName="title" placeholder="Ingrese un título">
 
             </div>
           </div>
           <div class="field">
             <label class="label">Descripción</label>
             <div class="control">
-              <input class="input" type="text" formControlName="content" placeholder="Ingrese una descripción" required>
+              <input class="input" type="text" formControlName="content" placeholder="Ingrese una descripción">
             </div>
 
           </div>
           <div class="field">
             <label class="label">Imagen</label>
             <div class="control">
-              <input class="input" type="text" formControlName="imageUrl" placeholder="Ingrese una descripción web de la imagen">
+              <input class="input" type="text" formControlName="imageUrl"
+                      placeholder="Ingrese una descripción web de la imagen"
+                      accept="image/*">
             </div>
 
           </div>
