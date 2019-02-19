@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-card',
@@ -13,6 +11,7 @@ export class CardComponent implements OnInit {
   @Input() title: any;
   @Input() content: any;
   @Input() imageUrl: any;
+  @Input() index: any;
 
   @Output() addCardChild = new EventEmitter<any>();
 
@@ -27,23 +26,24 @@ export class CardComponent implements OnInit {
     this.form = this.formBuilder.group({
       title: ['', [Validators.required]],
       content: ['', [Validators.required]],
-      imageUrl: ['', [Validators.required]]
+      imageUrl: ['', [Validators.required]],
     });
   }
 
   editCard() {
     this.editing = true;
-
   }
 
   addNewCard() {
     this.editing = false;
-    console.log(this.form.value);
+    // console.log(this.form.value);
 
     this.addCardChild.emit(this.form.value);
   }
 
 
 
-  deletedCard() {}
+  deletedCard() {
+
+  }
 }

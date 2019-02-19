@@ -2,23 +2,18 @@
 <div class="container">
   <a class="button is-dark" (click)="addCard()">Agregar Card</a>
   <a class="button is-dark" (click)="addList()">Agregar List</a>
-  <div class="is-left" *ngFor="let card of cards">
-    <app-card [title]=card.title
-              [content]=card.content
+  <div class="is-left" *ngFor="let card of cards; let i = index">
+    <app-card [title]=card.title [content]=card.content
               [imageUrl]=card.imageUrl
-              (addNewCard)="newCard($event)"
-              >
+              (addCardChild)="newCard($event)"
+              [index]="i + 1">
     </app-card>
   </div>
   <div class="is-right" *ngFor="let list of listCards">
-    <app-list [title1]=list.title1
-              [description1]=list.description1
-              [logo1]=list.logo1
-              [title2]=list.title2
-              [description2]=list.description2
-              [logo2]=list.logo2
-              [title3]=list.title3
-              [description3]=list.description3
+    <app-list [title1]=list.title1 [description1]=list.description1
+              [logo1]=list.logo1 [title2]=list.title2
+              [description2]=list.description2 [logo2]=list.logo2
+              [title3]=list.title3 [description3]=list.description3
               [logo3]=list.logo3>
     </app-list>
   </div>
