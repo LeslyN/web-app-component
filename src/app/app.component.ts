@@ -44,25 +44,12 @@ export class AppComponent {
 
   newCard(event) {
 
-    // if (this.cards.length > 0) {
-    // tslint:disable-next-line: forin
-      // for (let item in this.cards) {
-      //     this.cards[item].title = event.title;
-      //     this.cards[item].content = event.content;
-      //     this.cards[item].imageUrl = event.imageUrl;
-      //     console.log('item ++: ',  item += 1);
-
-      //   console.log('este es el card numero ' + item,  'este es title: ' + event.title )
-      // }
-      for (let i = 0; i < this.cards.length; i++) {
-        this.cards[i].title = event.title;
-        this.cards[i].content = event.content;
-        this.cards[i].imageUrl = event.imageUrl;
-
-        console.log('este es i: ', i);
-        console.log('Este es el titulo: ', this.cards[i].title);
-      }
-    // }
+    if (this.cards.length > 0) {
+      this.cards[event.index].title = event.title;
+      this.cards[event.index].content = event.content;
+      this.cards[event.index].imageUrl = event.imageUrl;
+      // console.log('index del evento', this.cards[event.index]);
+    }
   }
 
 }
