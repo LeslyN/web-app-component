@@ -27,6 +27,7 @@ export class CardComponent implements OnInit {
       title: ['', [Validators.required]],
       content: ['', [Validators.required]],
       imageUrl: ['', [Validators.required]],
+      index: this.index,
     });
   }
 
