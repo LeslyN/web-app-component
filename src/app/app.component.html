@@ -6,6 +6,7 @@
     <app-card [title]=card.title [content]=card.content
               [imageUrl]=card.imageUrl
               (addCardChild)="newCard($event)"
+              (deletedCardChild)="deletedCard($event)"
               [index]="card.index">
     </app-card>
 

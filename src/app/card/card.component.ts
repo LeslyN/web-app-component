@@ -13,8 +13,8 @@ export class CardComponent implements OnInit {
   @Input() imageUrl: any;
   @Input() index: any;
 
-  @Output() addCardChild = new EventEmitter<any>();
-
+  @Output() addCardChild = new EventEmitter();
+  @Output() deletedCardChild = new EventEmitter();
 
   editing = false;
 
@@ -45,6 +45,6 @@ export class CardComponent implements OnInit {
 
 
   deletedCard() {
-
+    this.deletedCardChild.emit(this.form.value);
   }
 }

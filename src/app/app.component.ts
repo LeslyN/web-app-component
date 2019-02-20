@@ -52,4 +52,9 @@ export class AppComponent {
     }
   }
 
+  deletedCard(event) {
+    this.cards.splice(event.index, event.index);
+    console.log('method splice: ', this.cards);
+  }
+
 }
