@@ -48,13 +48,16 @@ export class AppComponent {
       this.cards[event.index].title = event.title;
       this.cards[event.index].content = event.content;
       this.cards[event.index].imageUrl = event.imageUrl;
-      // console.log('index del evento', this.cards[event.index]);
     }
   }
 
   deletedCard(event) {
-    this.cards.splice(event.index, event.index);
-    console.log('method splice: ', this.cards);
+    // this.cards.splice(event.index, 1);
+
+    const i = this.cards.indexOf(this.cards[event.index]);
+    if (i !== -1) {
+      this.cards.splice(i, 1);
+    }
   }
 
 }
